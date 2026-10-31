@@ -12,7 +12,7 @@ Initial value of the inputs:
   OS1= 0;
   OS2= 00;
 
-  Unidates de tiempo: #2;
+  Unidades de tiempo: #2;
 
   ---
 
@@ -95,3 +95,5 @@ module alu (output reg [31:0] Out, input [3:0] OP, output reg GT, output reg EQ,
       GT = ($signed(Out) > 0);
   end  
 endmodule
+
+// Zero Detector, 2x1 Multiplexer, CH
