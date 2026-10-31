@@ -64,10 +64,9 @@ module soh (output reg [31:0] OB, input [31:0] RB, input [15:0] I, input [1:0] O
   end
 endmodule
 
-module alu (output reg [31:0] Out, input [3:0] OP, output GT, output EQ, output LE, input [31:0] A, input [31:0] B);
+module alu (output reg [31:0] Out, input [3:0] OP, output reg GT, output reg EQ, output reg LE, input [31:0] A, input [31:0] B);
   always @(*) begin
     case (OP)
-  
        4'b0000: Out = A + B; // ADD, ADDI
        4'b0001: Out = A - B; // SUB, BEQ and BNE
        4'b0010: Out = A & B; // AND, ANDI
@@ -89,13 +88,10 @@ module alu (output reg [31:0] Out, input [3:0] OP, output GT, output EQ, output 
       4'b1101: Out = A; // MOVZ
       default: Out = 32'b0;
     endcase 
-  end
-
-  always @(*) begin
-  // Flags (Pueden que den problemas)
-    LE = ($signed(Out) < 0);
-    EQ = (Out == 32'b0);
-    GT = ($signed(Out) > 0);
-  end
-  
+    // Fixed Added: Instead of assign each flag. Make
+    // Each flag output reg and put it at the bottom
+      LE = ($signed(Out) < 0);
+      EQ = (Out == 32'b0);
+      GT = ($signed(Out) > 0);
+  end  
 endmodule
