@@ -95,3 +95,12 @@ module alu (output reg [31:0] Out, input [3:0] OP, output reg GT, output reg EQ,
       GT = ($signed(Out) > 0);
   end  
 endmodule
+
+module zero_detector (output reg Z, input [31:0] B, output reg GT, output reg EQ, output reg LE);
+  always @(*) begin
+  if (B == 32'b0) 
+    Z = 1'b1; // Z = 1 (If all 32 bits = 0)
+  else
+    Z = 1'b0; // Z = 0 (If there is even 1 bit = 1)
+  end
+endmodule
