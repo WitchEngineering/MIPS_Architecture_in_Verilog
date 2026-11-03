@@ -131,6 +131,8 @@ initial begin
 $display("==test_4: Zero_Detector ==");
 $monitor("Z=%b B=%b, EQ=%b, LE=%b, GT=%b", Z, B, EQ, LE, GT);
 
+  // CH (Contol Handler)
+  
     $finish;
   end 
 endmodule 

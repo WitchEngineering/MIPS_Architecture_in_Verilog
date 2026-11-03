@@ -104,3 +104,42 @@ module zero_detector (output reg Z, input [31:0] B, output reg GT, output reg EQ
     Z = 1'b0; // Z = 0 (If there is even 1 bit = 1)
   end
 endmodule
+
+module condition_handler (output reg J, input MV, input Z, output reg RF_LE_OU, output reg RF_LE, input BI, input [2:0] cond, input [2:0] ACC);
+  always @(*) begin
+    // OJO: A = rs, B = rt
+    // Hay 6 condiciones que se tiene que probar. 
+    // J = 1 si la condición se cumple. 
+    // Flags del ACC: GT - Greater than condition bit (1 bit)
+                  //  EQ - Equal condition bit (1 bit)
+                  //  LE - Less than condition bit (1 bit)
+                  //  BI - Brico condicional
+                  // Default: No Jumps. LE pasa
+  J = 1'b0;
+  RF_LE_OU = RF_LE;
+
+// Need ot make it so ACC = EQ, LE, GT.
+  LE = ACC[2];
+  EQ = ACC[1];
+  GT = ACC[0];
+
+  if (BI) begin
+    case (cond)
+    3'b000: J = EQ; // BEQ (==)
+    3'b001: J = ~EQ; // BNE (!=)
+    3'b010: J = LE; // BLEZ (<)
+    3'b011: J = GT; // BGTZ (>)
+    3'b100: J = LE; // BLTZ & BLTZAL 
+    3'b101: J = GT | EQ; // BGEZ & BGEZAL (>=)
+    default: J = 1'b0; // If no-condition then 0
+    endcase
+  end
+  else if (MV) begin
+    case (cond)
+        3'b110: RF_LE_OU = Z; // MOVZ
+        3'b111: RF_LE_OU = ~Z; // MOVN
+        default: RF_LE_OU = 1'b0;
+      endcase
+    end
+  end
+endmodule
