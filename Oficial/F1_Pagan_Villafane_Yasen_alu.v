@@ -105,7 +105,7 @@ module zero_detector (output reg Z, input [31:0] B, output reg GT, output reg EQ
   end
 endmodule
 
-module condition_handler (output reg J, input MV, input Z, output reg RF_LE_OU, output reg RF_LE, input BI, input [2:0] cond, input [2:0] ACC);
+module condition_handler (output reg J, input MV, input Z, output reg RF_LE_OU, output reg RF_LE, input BI, input [2:0] cond, input [2:0] ACC, output reg LE, output reg EQ,  output reg GT);
   always @(*) begin
     // OJO: A = rs, B = rt
     // Hay 6 condiciones que se tiene que probar. 
@@ -140,6 +140,16 @@ module condition_handler (output reg J, input MV, input Z, output reg RF_LE_OU, 
         3'b111: RF_LE_OU = ~Z; // MOVN
         default: RF_LE_OU = 1'b0;
       endcase
+    end
+  end
+endmodule
+
+module 2x1_Multiplexer (input [31:0] One, input [31:0] Zero, input Link, output reg [31:0] EX_MUX_ALU);
+  always @(*) begin
+    if (Link == 1'b0) begin 
+      EX_MUX_ALU = Zero;
+      else if (Link == 1'b1)
+      EX_MUX_ALU = One;
     end
   end
 endmodule
