@@ -144,12 +144,11 @@ module condition_handler (output reg J, input MV, input Z, output reg RF_LE_OU, 
   end
 endmodule
 
-module 2x1_Multiplexer (input [31:0] One, input [31:0] Zero, input Link, output reg [31:0] EX_MUX_ALU);
+module Multiplexer_2x1 (input [31:0] One, input [31:0] Zero, input Link, output reg [31:0] EX_MUX_ALU);
   always @(*) begin
-    if (Link == 1'b0) begin 
+    if (Link == 1'b0)
       EX_MUX_ALU = Zero;
-      else if (Link == 1'b1)
+    else
       EX_MUX_ALU = One;
     end
-  end
 endmodule
