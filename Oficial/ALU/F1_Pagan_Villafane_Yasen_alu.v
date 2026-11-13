@@ -12,7 +12,7 @@ Initial value of the inputs:
   OS1= 0;
   OS2= 00;
 
-  Unidates de tiempo: #2;
+  Unidades de tiempo: #2;
 
   ---
 
