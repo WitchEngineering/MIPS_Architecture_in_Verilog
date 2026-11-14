@@ -6,6 +6,9 @@ module tb_alu_test;
   reg [3:0] OP;
   wire [31:0] Out;
 
+// Zero Detector
+  wire Z;
+
   // Flags
   wire LE;
   wire EQ;
@@ -24,6 +27,7 @@ module tb_alu_test;
 foh u_foh (.RA(RA), .SA(SA), .OS1(OS1), .OA(OA));
 soh u_soh (.RB(RB), .I(I), .OS2(OS2), .OB(OB));
 alu u_alu (.A(OA), .B(OB), .OP(OP), .GT(GT), .EQ(EQ), .LE(LE), .Out(Out));
+zero_detector u_zero_detector (.Z(Z), .B(B));
 
 initial begin
 
@@ -120,6 +124,15 @@ initial begin
 
   OP = 4'b0000; #2; // ADD
 
+  // Zero Detector:
+  // Bug Counter: +1 (Possible overwrite of the B value)
+  B = 000000000000000000100000000000001;
+
+$display("==test_4: Zero_Detector ==");
+$monitor("Z=%b B=%b, EQ=%b, LE=%b, GT=%b", Z, B, EQ, LE, GT);
+
+  // CH (Contol Handler)
+  
     $finish;
   end 
 endmodule 
