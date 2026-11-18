@@ -41,7 +41,7 @@ module data_memory(input [31:0] DI, input [8:0] A, input [1:0] Size, input SE, i
 endmodule
 
 // 3x1 Multiplexer that has O = MEM_PD in the PPU 
-module Multiplexer_3x1 (input [31:0] One, input [31:0] Zero, input L, output reg [31:0] MEM_PD);
+module Multiplexer_3x1 (input [31:0] Zero, input [31:0] One, input L, output reg [31:0] MEM_PD);
   always @(*) begin
     if (L == 1'b0)
       MEM_PD = Zero;
