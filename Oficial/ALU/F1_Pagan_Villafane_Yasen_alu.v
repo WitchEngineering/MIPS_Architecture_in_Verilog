@@ -105,7 +105,7 @@ module zero_detector (output reg Z, input [31:0] B, output reg GT, output reg EQ
   end
 endmodule
 
-module condition_handler (output reg J, input MV, input Z, output reg RF_LE_OU, output reg RF_LE, input BI, input [2:0] cond, input [2:0] ACC, output reg LE, output reg EQ,  output reg GT);
+module condition_handler (output reg J, input MV, input Z, output reg RF_LE_OU, input RF_LE, input BI, input [2:0] cond, input [2:0] ACC, output reg LE, output reg EQ,  output reg GT);
   always @(*) begin
     // OJO: A = rs, B = rt
     // Hay 6 condiciones que se tiene que probar. 
