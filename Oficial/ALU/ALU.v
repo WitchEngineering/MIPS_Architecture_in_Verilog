@@ -127,6 +127,8 @@ module condition_handler (output reg J, input MV, input Z, output reg RF_LE_OU, 
     case (cond)
     3'b000: J = EQ; // BEQ (==)
     3'b001: J = ~EQ; // BNE (!=)
+    // TODO: BLEZ means <= 0, but this is the same as BLTZ (J = LE). Check the Table of Operations,
+    // finish the BLEZ rows in CH_test_bench.v and, if J differs from what you expect, change it (maybe J = LE | EQ)
     3'b010: J = LE; // BLEZ (<)
     3'b011: J = GT; // BGTZ (>)
     3'b100: J = LE; // BLTZ & BLTZAL 
