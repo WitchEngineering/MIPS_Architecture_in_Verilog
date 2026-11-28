@@ -1,0 +1,19 @@
+iverilog -t null PPU.v ALU_SOH_FOH.v CH.v Clear_Pipeline_Register.v Control_Unit.v Data_Memory.v DHDU.v four_input_mux.v Instruction_Memory.v Modules.v param_mux.v Pipeline_Register.v Register_File.v Zero_Detector.v
+
+//====TEST BECH VALIDATION PROGRAM=======//
+
+iverilog -o sim.out PPU_TB_VALIDATION.v PPU.v ALU_SOH_FOH.v CH.v Clear_Pipeline_Register.v Control_Unit.v Data_Memory.v DHDU.v four_input_mux.v Instruction_Memory.v Modules.v param_mux.v Pipeline_Register.v Register_File.v Zero_Detector.v
+
+vvp sim.out
+
+//======TEST BENCH FIRST PROGRAM=========//
+
+iverilog -o sim.out PPU_TB_FIRST_PROGRAM.v PPU.v ALU_SOH_FOH.v CH.v Clear_Pipeline_Register.v Control_Unit.v Data_Memory.v DHDU.v four_input_mux.v Instruction_Memory.v Modules.v param_mux.v Pipeline_Register.v Register_File.v Zero_Detector.v
+
+vvp sim.out
+
+//======TEST BENCH SECOND PROGRAM=======//
+
+iverilog -o sim.out PPU_TB_SECOND_PROGRAM.v PPU.v ALU_SOH_FOH.v CH.v Clear_Pipeline_Register.v Control_Unit.v Data_Memory.v DHDU.v four_input_mux.v Instruction_Memory.v Modules.v param_mux.v Pipeline_Register.v Register_File.v Zero_Detector.v
+
+vvp sim.out

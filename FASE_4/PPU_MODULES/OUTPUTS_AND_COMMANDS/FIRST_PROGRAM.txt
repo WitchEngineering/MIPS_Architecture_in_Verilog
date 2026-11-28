@@ -1,0 +1,64 @@
+//========================FIRST PROGRAM=======================//
+
+00100000 00000001 00000000 00101100
+10010000 00100010 00000000 00000000
+10010000 00100011 00000000 00000010
+00000000 00000000 00101000 00100000
+00000000 10100010 00101000 00100000
+00100000 01100011 11111111 11111111
+00011100 01100000 11111111 11111101
+00000000 00000000 00000000 00000000
+10100000 00100101 00000000 00000001
+00010000 00000000 00000000 00000010
+00000000 00000000 00000000 00000000
+00011001 00000101 00000111 00000100
+00010000 00000000 11111111 11111111
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+
+//============================OUTPUT===========================//
+
+t=0 PC=x r1=x r2=x r3=x r5=x, memory_address=x
+t=2 PC=0 r1=x r2=x r3=x r5=x, memory_address=0
+t=6 PC=4 r1=x r2=x r3=x r5=x, memory_address=0
+t=10 PC=8 r1=x r2=x r3=x r5=x, memory_address=0
+t=14 PC=12 r1=x r2=x r3=x r5=x, memory_address=44
+t=18 PC=16 r1=x r2=x r3=x r5=x, memory_address=44
+t=22 PC=20 r1=44 r2=x r3=x r5=x, memory_address=46
+t=26 PC=24 r1=44 r2=25 r3=x r5=x, memory_address=0
+t=30 PC=28 r1=44 r2=25 r3=7 r5=x, memory_address=25
+t=34 PC=32 r1=44 r2=25 r3=7 r5=0, memory_address=6
+t=38 PC=16 r1=44 r2=25 r3=7 r5=25, memory_address=6
+t=42 PC=20 r1=44 r2=25 r3=6 r5=25, memory_address=0
+t=46 PC=24 r1=44 r2=25 r3=6 r5=25, memory_address=0
+t=50 PC=28 r1=44 r2=25 r3=6 r5=25, memory_address=50
+t=54 PC=32 r1=44 r2=25 r3=6 r5=25, memory_address=5
+t=58 PC=16 r1=44 r2=25 r3=6 r5=50, memory_address=5
+t=62 PC=20 r1=44 r2=25 r3=5 r5=50, memory_address=0
+t=66 PC=24 r1=44 r2=25 r3=5 r5=50, memory_address=0
+t=70 PC=28 r1=44 r2=25 r3=5 r5=50, memory_address=75
+t=74 PC=32 r1=44 r2=25 r3=5 r5=50, memory_address=4
+t=78 PC=16 r1=44 r2=25 r3=5 r5=75, memory_address=4
+t=82 PC=20 r1=44 r2=25 r3=4 r5=75, memory_address=0
+t=86 PC=24 r1=44 r2=25 r3=4 r5=75, memory_address=0
+t=90 PC=28 r1=44 r2=25 r3=4 r5=75, memory_address=100
+t=94 PC=32 r1=44 r2=25 r3=4 r5=75, memory_address=3
+t=98 PC=16 r1=44 r2=25 r3=4 r5=100, memory_address=3
+t=102 PC=20 r1=44 r2=25 r3=3 r5=100, memory_address=0
+t=106 PC=24 r1=44 r2=25 r3=3 r5=100, memory_address=0
+t=110 PC=28 r1=44 r2=25 r3=3 r5=100, memory_address=125
+t=114 PC=32 r1=44 r2=25 r3=3 r5=100, memory_address=2
+t=118 PC=16 r1=44 r2=25 r3=3 r5=125, memory_address=2
+t=122 PC=20 r1=44 r2=25 r3=2 r5=125, memory_address=0
+t=126 PC=24 r1=44 r2=25 r3=2 r5=125, memory_address=0
+t=130 PC=28 r1=44 r2=25 r3=2 r5=125, memory_address=150
+t=134 PC=32 r1=44 r2=25 r3=2 r5=125, memory_address=1
+t=138 PC=16 r1=44 r2=25 r3=2 r5=150, memory_address=1
+t=142 PC=20 r1=44 r2=25 r3=1 r5=150, memory_address=0
+t=146 PC=24 r1=44 r2=25 r3=1 r5=150, memory_address=0
+t=150 PC=28 r1=44 r2=25 r3=1 r5=150, memory_address=175
+t=154 PC=32 r1=44 r2=25 r3=1 r5=150, memory_address=0
+t=158 PC=36 r1=44 r2=25 r3=1 r5=175, memory_address=0
+t=162 PC=40 r1=44 r2=25 r3=0 r5=175, memory_address=0
+00011001 00000101 00000111 00000100
+t=166 PC=48 r1=44 r2=25 r3=0 r5=175, memory_address=45
